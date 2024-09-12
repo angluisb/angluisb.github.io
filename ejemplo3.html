@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 3</title>
+    <script>
+        function Generar() {
+            // Borra todas las columnas y renglones de la tabla.
+            document.getElementById("cuadrado").innerHTML = "";
+
+            // Agregamos renglones y columnas.
+            var tabla = document.getElementById("cuadrado");
+            for (let r = 0; r < document.getElementById("lados").value; r++) {
+                var nuevaFila = tabla.insertRow(-1);
+                for (let c = 0; c < document.getElementById("lados").value; c++) {
+                    var celda = nuevaFila.insertCell(-1);
+                    // celda.innerHTML = `${r}, ${c}`;
+                    var entrada = document.createElement("input");
+                    entrada.setAttribute("type", "number");
+                    entrada.setAttribute("required", "required");
+                    entrada.setAttribute("value", Aleatorio());
+                    entrada.setAttribute("style", "width:50px; color:blue;");
+                    celda.appendChild(entrada);
+                }
+                var celda = nuevaFila.insertCell(-1);
+                celda.innerHTML = "Aquí sale la suma";
+            }
+        }
+
+        function Aleatorio() {
+            return Math.floor(Math.random() * 100);
+        }
+
+        function EjemploMagico() {
+            var tabla = document.getElementById("cuadrado");
+            for (let r = 0; r < document.getElementById("lados").value; r++) {
+                for (let c = 0; c < document.getElementById("lados").value; c++) {
+                    tabla.rows[r].cells[c].querySelector('input').value = 
+                    document.getElementById("lados").value;
+                }
+            }
+        }
+
+        function EjemploCuadrado() {
+            var tabla = document.getElementById("cuadrado");
+            var r = 0, c = 0;
+            for (r = 0; r < document.getElementById("lados").value; r++) {
+                for (c = 0; c < document.getElementById("lados").value; c++) {
+                    tabla.rows[r].cells[c].querySelector('input').value = 
+                    Aleatorio();
+                }
+            }
+            tabla.rows[r-1].cells[c-1].querySelector('input').value = -1;
+        }
+    </script>
+</head>
+<body onload="Generar()">
+    <a href="index.html"><button>Regresar al menú</button></a><br>
+    <h1>Cuadrado Mágico</h1>
+    <p>Los cuadrados mágicos, son un conjunto de números enteros diferentes colocados en las casillas de un cuadrado
+       y que se caracterizan porque la suma de sus filas, columnas y diagonales principales es siempre la misma,
+       el valor de la suma es denominado Constante mágica del Cuadrado.
+    <br>
+    <p>Seleccione el tamaño del cuadrado:
+        <select id="lados" onchange="Generar()">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </p>
+    <input type="button" value="Generar" onclick="Generar()">
+    <input type="button" value="Calcular">
+    <input type="button" value="Ejemplo de Cuadrado" onclick="EjemploCuadrado()">
+    <input type="button" value="Ejemplo de Cuadrado mágico" onclick="EjemploMagico()">
+    <table border="0.5" id="cuadrado" style="border-collapse: collapse;"></table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo Uno</title>
+    <a href="index.html">Regresar al menu</a>
+    <script>
+        function findMultTree(dato1,dato2) {
+            var count=0;
+            var a=parseInt(document.getElementById("numOne").value);
+            var b=parseInt(document.getElementById("numTwo").value);
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("res").innerHTML=`Resultado:<br> No es posible encontrar debido a un error al ingresar los datos`
+            }
+            else{
+                var mult= "";
+            for(let i=a; i<=b; i++){
+                if (i%3==0) {
+                    mult += `<br>${i}`
+                }
+            if (a!=b) {
+                for(let i=a; i>=b; i--){
+                if (i%3==0) {
+                    mult += `<br>${i}`
+                }
+            }
+            }
+            
+            document.getElementById("res").innerHTML=`Resultado:<br> Los multipos de 3 entre ${a} y ${b} son:${mult}`
+            }
+        }
+        }
+    </script>
+</head>
+<body bgcolor="#7671F6">
+    <h1>Encontrar e imprimir todos los numeros comprendidos entre dos enteros que son  multiplos de 3</h1><br>
+    dato1<input type="text" value="10" id="numOne">
+    <br>
+    dato2<input type="text"  value="20" id="numTwo">
+    <br>
+    <input type="button" value="click aqui" onclick="findMultTree()">
+    <br>
+    <p id="res">Resultado:</p>
+    <br>
+</body>
+</html>
