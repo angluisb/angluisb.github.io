@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 1</title>
+    <script src="./js/funciones.js"></script>
+</head>
+<body>
+    <a href="index.html">←regresar</a>
+    <br><br>
+    <div class="form-container">
+        <p>Capture e imprima un arreglo de 10 elementos de tipo entero. El arreglo se debe de imprimir de forma horizontal y vertical, muestre el índice de cada elemento. La captura de elementos se debe cancelar al introducir el último. Incluya un botón de reinicio.</p>
+        <br>
+    </div>
+    <div class="form-container">
+        <fieldset>
+            <form action="javascript:Capturar()">
+                <br>
+                <p id="arreglo">Capture el elemento [0]</p>
+                <input type="number" id="datos" onkeyup="if(event.key==='.') {event.preventDefault();}" required><br>
+                <p id="error"></p>
+                <br><br><input type="submit" class="b" id="boton" value="Capturar">
+                <input type="button" class="b" value="Reiniciar" onclick="Reiniciar()">
+                <br><br><br>
+            </form>
+        </fieldset>
+    </div>
+    
+    <div class="form-container">
+        <fieldset><legend>↶↷ Salida ↶↷</legend>
+        <table border="1">
+            <tr id="renglon"> </tr>
+            <tr id="renglon2"> </tr>
+        </table><br>
+        <table border="1" id="vertical">
+        </table>
+        </fieldset>
+    </div>
+</body>
+</html>

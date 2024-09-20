@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo3</title>
+    <a href="index.html">Regresar al menu</a>
+    <script>
+        function Nat() {
+            var cont=0;
+            var nat=parseInt(document.getElementById("num").value);
+            var resultado="";
+            if (isNaN(nat)|| nat<0) {
+                document.getElementById("res").innerHTML=resultado="no es posible completar esta peticion"
+            }
+                else{
+                    for (let i =2; i<=nat; i++) {
+                    if (i%2==0) {
+                        cont+=1;
+                    resultado+=`${i} al cubo es:${i*i*i} <br>`
+                }
+                }
+            }
+            document.getElementById("res").innerHTML=`Resultado:<br>${resultado}`;
+    }
+    </script>
+</head>
+<body  bgcolor="#7671F6">
+    <h1>Escribir un programa que muestre en pantalla los cinco primeros numeros naturales pares elevados al cubo<br></h1>
+    
+    Cantidades de numeros pares: <input type="text" value="20" id="num"><br>
+    <input type="button" value="Encontrar los n primeros" onclick="Nat()">
+    <p id="res">Resultado:</p>
+
+</body>
+</html>
