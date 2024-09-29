@@ -4,84 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .imagen
-        {
-            width: 200px;
-            height: 200px;
-        }
-    </style>
-    <script>
-        var tarjetas=[
-            "0.jpeg","0.jpeg","1.jpeg","1.jpeg",
-            "2.jpeg","2.jpeg","3.jpeg","3.jpeg",
-            "4.jpeg","4.jpeg","5.jpeg","5.jpeg",
-            "6.jpeg","6.jpeg","7.jpeg","7.jpeg",
-        ];
-        var imagenTemporal;
-        var esperando = false;
-        function CambiarImagen(img, indice) {
-            img.src="./img/"+tarjetas[indice];
-
-            if (!esperando){
-                imagenTemporal = img
-                esperando=true;
-                
-            } else {
-                if (imagenTemporal.src==img.src) {
-                    alert("encontraste un par")
-                    EliminarPar(imagenTemporal,img)
-                } else {
-                    alert("#No par")
-                }
-                esperando=false;
-            }
-        }
-        function Revolver() {
-            var i=0, j=0, temp=0;
-            for (i = tarjetas.length-1; i >0; i--) {
-                j=Math.floor(Math.random() *(i+1));
-                [tarjetas[i], tarjetas[j]]= [tarjetas[j], tarjetas[i]]; 
-                
-            }
-        }
-
-        function EliminarPar(img1,img2) {
-            img1.src="";
-            img1.style.display="none";
-            img2.src="";
-            img2.style.display="none";
-            
-        }
-    </script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/memorama.js"></script>
+    
 </head>
-<body onload="Revolver()">
-    <table>
+<body onload="Revolver(); fondo();">
+    <table id="tablita" style="display: inline-table;">
         <tr>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,0)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,1)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,2)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,3)"></td>
+            <td><img src="./img/fondo.jpeg" id="0" alt="" class="imagen" onclick="CambiarImagen(this,0)"></td>
+            <td><img src="./img/fondo.jpeg" id="1" alt="" class="imagen" onclick="CambiarImagen(this,1)"></td>
+            <td><img src="./img/fondo.jpeg" id="2" alt="" class="imagen" onclick="CambiarImagen(this,2)"></td>
+            <td><img src="./img/fondo.jpeg" id="3" alt="" class="imagen" onclick="CambiarImagen(this,3)"></td>
         </tr>
         <tr>
             <tr>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,4)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,5)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,6)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,7)"></td>
+            <td><img src="./img/fondo.jpeg" id="4" alt="" class="imagen" onclick="CambiarImagen(this,4)"></td>
+            <td><img src="./img/fondo.jpeg" id="5" alt="" class="imagen" onclick="CambiarImagen(this,5)"></td>
+            <td><img src="./img/fondo.jpeg" id="6" alt="" class="imagen" onclick="CambiarImagen(this,6)"></td>
+            <td><img src="./img/fondo.jpeg" id="7" alt="" class="imagen" onclick="CambiarImagen(this,7)"></td>
             </tr>
             <tr>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,8)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,9)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,10)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,11)"></td>
+            <td><img src="./img/fondo.jpeg" id="8" alt="" class="imagen" onclick="CambiarImagen(this,8)"></td>
+            <td><img src="./img/fondo.jpeg" id="9" alt="" class="imagen" onclick="CambiarImagen(this,9)"></td>
+            <td><img src="./img/fondo.jpeg" id="10"alt="" class="imagen" onclick="CambiarImagen(this,10)"></td>
+            <td><img src="./img/fondo.jpeg" id="11" alt="" class="imagen" onclick="CambiarImagen(this,11)"></td>
             </tr>
         </tr>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,12)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,13)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,14)"></td>
-            <td><img src="./img/fondo.jpeg" alt="" class="imagen" onclick="CambiarImagen(this,15)"></td>
+            <td><img src="./img/fondo.jpeg" id="12" alt="" class="imagen" onclick="CambiarImagen(this,12)"></td>
+            <td><img src="./img/fondo.jpeg" id="13" alt="" class="imagen" onclick="CambiarImagen(this,13)"></td>
+            <td><img src="./img/fondo.jpeg" id="14" alt="" class="imagen" onclick="CambiarImagen(this,14)"></td>
+            <td><img src="./img/fondo.jpeg" id="15" alt="" class="imagen" onclick="CambiarImagen(this,15)"></td>
         </tr>
     </table>
+    <h1 id="contador">Pares encontrados:0</h1>
+    <input type="button" value="Reiniciar" onclick="Reiniciar()">
+    <h1 id="salida"></h1>
 </body>
 </html>
