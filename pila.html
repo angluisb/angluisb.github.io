@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/stack.css">
+    <script src="./js/stack.js"></script>
+</head>
+<body onload="Aleatorias()">
+    <h1>Pila generica</h1>
+    Desarrolle una aplicación que muestre un objeto tipo pila, e implemente los métodos Push(), Pop(), Peek(), Clear(), Find(), isEmpty()
+    <br>Elemento: <input type="text" id="Elemento" onkeyup="CambioTexto()">
+    <input type="button" value="Push()" id="iPush" onclick="Push(); Aleatorias();">
+    <input type="button" value="Pop()" id="iPop" onclick="Pop()">
+    <input type="button" value="Peek()" id="iPeek" onclick="Peek()">
+    <input type="button" value="Clear()" id="iClear" onclick="Clear()">
+    <input type="button" value="Find()" id="iFind" onclick="Find()">
+    <input type="button" value="isEmpty()" id="iEmpty" onclick="isEmpty()">
+    <table>
+        <tbody id="tabla"></tbody>
+    </table>
+    <img src="./img/pila.jpg" alt="Imagen de pila">
+    <h3 id="mensaje"></h3>
+</body>
+</html>
